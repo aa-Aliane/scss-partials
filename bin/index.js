@@ -86,6 +86,7 @@ const add_to_partial = require("../lib/commands/add");
   }
 
   else {
+    // display available commands
     console.log(`create : create styles folder including sass partials`)
     console.log(`add : add a scss file to a specified sass folder`)
     console.log(`display : display help`)
