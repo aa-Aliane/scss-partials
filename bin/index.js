@@ -25,11 +25,15 @@ const components = require("../lib/components");
 const layouts = require("../lib/layouts");
 const pages = require("../lib/pages");
 
+const add_to_partial = require("../lib/commands/add");
+
 (async () => {
   init({ clear });
   input.includes(`help`) && cli.showHelp(0);
 
   debug && log(flags);
+
+  console.log(flags);
 
   if (input.includes("create")) {
     // styles directory
@@ -68,5 +72,16 @@ const pages = require("../lib/pages");
     fs.writeFile(path.join(styles_directory_path, "style.css"), "", (err) => {
       if (err) console.log(err);
     });
+  }
+
+  else if (input.includes("add")) {
+    let target_directory = flags['folder']
+    let partial_name = flags['name']
+    if (target_directory && partial_name) {
+      add_to_partial(target_directory, partial_name)
+    }
+    else {
+      console.log('--folder or --name not specified')
+    }
   }
 })();

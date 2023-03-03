@@ -12,11 +12,22 @@ const flags = {
 		type: `boolean`,
 		alias: `h`,
 		desc: `Print help info`
+	},
+	folder: {
+		type: `string`,
+		alias: `f`,
+		desc : `Folder name`
+	},
+	name: {
+		type: `string`,
+		alias: `n`,
+		desc : `Partial name`
 	}
 };
 
 const commands = {
 	create: { desc: `Create styles folder with sass partials` },
+	add : {desc: `Add new partial file to target folder`}
 };
 
 const helpText = meowHelp({
