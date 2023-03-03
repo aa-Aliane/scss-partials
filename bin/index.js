@@ -33,7 +33,7 @@ const add_to_partial = require("../lib/commands/add");
 
   debug && log(flags);
 
-  console.log(flags);
+
 
   if (input.includes("create")) {
     // styles directory
@@ -83,5 +83,11 @@ const add_to_partial = require("../lib/commands/add");
     else {
       console.log('--folder or --name not specified')
     }
+  }
+
+  else {
+    console.log(`create : create styles folder including sass partials`)
+    console.log(`add : add a scss file to a specified sass folder`)
+    console.log(`display : display help`)
   }
 })();
