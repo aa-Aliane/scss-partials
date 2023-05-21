@@ -28,6 +28,7 @@
     "@semantic-release/github": "^8.0.7",
     "@semantic-release/npm": "^9.0.1",
     "commitizen": "^4.2.6",
+    "cz-conventional-changelog": "^3.3.0",
     "semantic-release": "^20.0.2"
   },
   "release": {
@@ -37,5 +38,10 @@
     ]
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

@@ -33,20 +33,18 @@ const add_to_partial = require("../lib/commands/add");
 
   debug && log(flags);
 
-
-
   if (input.includes("create")) {
     // styles directory
     const styles_directory_path = path.join(process.cwd(), "styles");
     if (!fs.existsSync(styles_directory_path)) {
-      fs.mkdir(styles_directory_path, (err) => {
+      fs.mkdirSync(styles_directory_path, (err) => {
         if (err) console.log(err);
       });
     }
     //  sass directory
     const sass_directory_path = path.join(styles_directory_path, "sass");
     if (!fs.existsSync(sass_directory_path)) {
-      fs.mkdir(sass_directory_path, (err) => {
+      fs.mkdirSync(sass_directory_path, (err) => {
         if (err) console.log(err);
       });
     }
@@ -72,23 +70,18 @@ const add_to_partial = require("../lib/commands/add");
     fs.writeFile(path.join(styles_directory_path, "style.css"), "", (err) => {
       if (err) console.log(err);
     });
-  }
-
-  else if (input.includes("add")) {
-    let target_directory = flags['folder']
-    let partial_name = flags['name']
+  } else if (input.includes("add")) {
+    let target_directory = flags["folder"];
+    let partial_name = flags["name"];
     if (target_directory && partial_name) {
-      add_to_partial(target_directory, partial_name)
+      add_to_partial(target_directory, partial_name);
+    } else {
+      console.log("--folder or --name not specified");
     }
-    else {
-      console.log('--folder or --name not specified')
-    }
-  }
-
-  else {
+  } else {
     // display available commands
-    console.log(`create : create styles folder including sass partials`)
-    console.log(`add : add a scss file to a specified sass folder`)
-    console.log(`display : display help`)
+    console.log(`create : create styles folder including sass partials`);
+    console.log(`add : add a scss file to a specified sass folder`);
+    console.log(`display : display help`);
   }
 })();
